@@ -1,7 +1,7 @@
 export const VehiclesTypes = () => {
   return (
     <div>
-      Vehicle types
+      Vehicle Types
     </div>
   )
 }

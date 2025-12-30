@@ -9,15 +9,17 @@ import {
   Typography,
 } from "@mui/material";
 import { Shipments } from "./Shipments.jsx";
-import {Transports} from "./Transports.jsx";
-import {VehiclesTypes} from "./VehiclesTypes.jsx";
+import { Transports } from "./Transports.jsx";
+import { VehiclesTypes } from "./VehiclesTypes.jsx";
+import { Materials } from "./Materials.jsx";
 // import Orders from "./Orders";
 // import Vehicles from "./Vehicles";
 // import Reports from "./Reports";
 const navigationItems = [
   { text: "Transports", component: <Transports /> },
+  // { text: "VehicleTypes", component: <VehiclesTypes /> },
+  { text: "Materials", component: <Materials /> },
   { text: "Shipments", component: <Shipments /> },
-  { text: "VehicleTypes", component: <VehiclesTypes /> },
   // { text: "Reports", component: <Reports /> },
 ];
 export const Dashboard = () => {
@@ -27,7 +29,7 @@ export const Dashboard = () => {
   };
   return (
     <Box display="flex" height="100vh">
-      <Box bgcolor="grey.200" p={1} width="15%" >
+      <Box bgcolor="grey.200" p={1} width="15%">
         <Typography variant="h6" gutterBottom>
           Transport management System
         </Typography>

@@ -11,9 +11,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use("/api/shipments", require("./routes/ShipmentRoutes"));
-app.use("/api/materials", require("./routes/MaterialRoutes"));
 app.use("/api/transports", require("./routes/TransportRoutes"));
+app.use("/api/vehicle-types", require("./routes/VehicleTypeRoutes"));
+app.use("/api/materials", require("./routes/MaterialRoutes"));
+app.use("/api/shipments", require("./routes/ShipmentRoutes"));
 
 app.listen(PORT, () => {
   console.log(`🚚 Transport API running on http://localhost:${PORT}`);

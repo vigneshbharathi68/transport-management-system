@@ -1,38 +1,28 @@
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import Paper from "@mui/material/Paper";
 
+import { DataGrid } from "@mui/x-data-grid";
 
+export const DataTable = ({ data }) => {
+  const columns = data.length > 0 ? Object.keys(data[0]).map(col => ({ field: col, headerName: col })) : [];
+  
 
-export const DataTable = ({data}) => {
-  const columns = data.length > 0 ? Object.keys(data[0]) : [];
+  const paginationModel = {
+    pageSize: 5,
+    page: 0,
+  };
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            {columns.map((column) => (
-              <TableCell key={column}>{column}</TableCell>
-            ))}
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {data.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              {columns.map((column) => (
-                <TableCell >{row[column]}</TableCell>
-              ))}
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    // can you distribute the columns dynamically based on the data keys
+
+    <Paper sx={{ width: "100%" }}>
+      <DataGrid
+        rows={data}
+        columns={columns}
+        initialState={{ pagination: { paginationModel } }}
+        pageSizeOptions={[5, 10]}
+        // checkboxSelection
+        sx={{ border: 0 }}
+        distributeColumnsEvenly={true}
+      />
+    </Paper>
   );
-}
+};
