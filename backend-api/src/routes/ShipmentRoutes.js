@@ -1,23 +1,23 @@
 const express = require("express");
 const ShipmentController = require("../controllers/ShipmentController");
-const ShipmentValidation = require("../middleware/validation");
+const Validation = require("../middleware/validation");
 
 const router = express.Router();
 
 router.post(
   "/",
-  ShipmentValidation.createShipment,
+  Validation.createShipment,
   ShipmentController.createShipment
 );
 router.get("/", ShipmentController.getAllShipments);
 router.get(
   "/:id",
-  ShipmentValidation.getShipment,
+  Validation.getShipment,
   ShipmentController.getShipment
 );
 router.put(
   "/:id",
-  ShipmentValidation.getShipment,
+  Validation.getShipment,
   ShipmentController.updateShipment
 );
 

@@ -1,4 +1,5 @@
-class ShipmentValidation {
+class Validation {
+  // Shipment validation middleware
   static createShipment(req, res, next) {
     const {
       order_no,
@@ -40,6 +41,10 @@ class ShipmentValidation {
     }
     next();
   }
+
+  // Transport validation middleware
+  
+
 }
 
-module.exports = ShipmentValidation;
+module.exports = Validation;

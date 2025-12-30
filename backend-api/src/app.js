@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const shipmentRoutes = require("./routes/ShipmentRoutes");
+require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -11,7 +11,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use("/api/shipments", shipmentRoutes);
+app.use("/api/shipments", require("./routes/ShipmentRoutes"));
+app.use("/api/materials", require("./routes/MaterialRoutes"));
+app.use("/api/transports", require("./routes/TransportRoutes"));
 
 app.listen(PORT, () => {
   console.log(`🚚 Transport API running on http://localhost:${PORT}`);
