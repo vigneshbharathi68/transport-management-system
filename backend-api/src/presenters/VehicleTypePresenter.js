@@ -1,6 +1,3 @@
-// presenters/VehicleTypePresenter.js
-const VehicleType = require('../models/VehicleType');
-
 class VehicleTypePresenter {
     static present(vehicleTypeData) {
         return {
@@ -17,7 +14,7 @@ class VehicleTypePresenter {
     }
 
     static presentList(vehicleTypesData) {
-        return vehicleTypesData.map(data => new VehicleType(data));
+        return vehicleTypesData.map(data => this.present(data));
     }
 
     static presentResponse(data, total = null) {

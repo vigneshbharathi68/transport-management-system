@@ -21,4 +21,6 @@ router.put(
   ShipmentController.updateShipment
 );
 
+router.post("/upload", ShipmentController.uploadShipments);
+
 module.exports = router;

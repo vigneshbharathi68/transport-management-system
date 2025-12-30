@@ -10,6 +10,16 @@ class MaterialController {
     }
   }
 
+  async getAllIds(req, res) {
+    try {
+      const materialIds = await materialService.getAllIds();
+      res.json({ success: true, data: materialIds });
+
+    } catch (err) {
+      res.status(500).json({ success: false, error: err.message });
+    }
+  }
+
   async create(req, res) {
     try {
       const { code, name, category, unit_weight, unit_volume, is_active } = req.body;

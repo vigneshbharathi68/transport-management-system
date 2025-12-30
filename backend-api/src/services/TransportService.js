@@ -3,7 +3,6 @@ const TransportPresenter = require('../presenters/TransportPresenter');
 
 class TransportService {
     async getAll() {
-      console.log("TransportService: getAll called");
         const query = `SELECT * FROM transport`;
         
         const result = await db.query(query);

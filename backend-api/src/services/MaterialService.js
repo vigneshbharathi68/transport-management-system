@@ -1,5 +1,5 @@
-const db = require('../lib/db');
-const MaterialPresenter = require('../presenters/MaterialPresenter');
+const db = require("../lib/db");
+const MaterialPresenter = require("../presenters/MaterialPresenter");
 
 class MaterialService {
   async getAll() {
@@ -12,6 +12,16 @@ class MaterialService {
     const result = await db.query(query);
 
     return MaterialPresenter.presentList(result.rows);
+  }
+
+  async getAllIds() {
+    const query = `
+      SELECT id
+      FROM material
+      ORDER BY id ASC
+    `;
+    const result = await db.query(query);
+    return result.rows.map((row) => row.id);
   }
 
   async create(data) {

@@ -1,5 +1,5 @@
 // Create a dashboard page for the transport frontend application that will have 4 navigateion actions at left navigation and it should be 10% of width of whole page and right side we will be showing the component based on teh option selection
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Box,
   List,
@@ -12,15 +12,11 @@ import { Shipments } from "./Shipments.jsx";
 import { Transports } from "./Transports.jsx";
 import { VehiclesTypes } from "./VehiclesTypes.jsx";
 import { Materials } from "./Materials.jsx";
-// import Orders from "./Orders";
-// import Vehicles from "./Vehicles";
-// import Reports from "./Reports";
 const navigationItems = [
   { text: "Transports", component: <Transports /> },
-  // { text: "VehicleTypes", component: <VehiclesTypes /> },
+  { text: "VehicleTypes", component: <VehiclesTypes /> },
   { text: "Materials", component: <Materials /> },
   { text: "Shipments", component: <Shipments /> },
-  // { text: "Reports", component: <Reports /> },
 ];
 export const Dashboard = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);

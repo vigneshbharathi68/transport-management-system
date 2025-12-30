@@ -70,6 +70,21 @@ class ShipmentController {
       });
     }
   }
+
+  async uploadShipments(req, res) {
+    try {
+      const shipments = await shipmentService.uploadShipments(req.file);
+      res.status(201).json({
+        success: true,
+        data: shipments,
+      });
+    } catch (error) {
+      res.status(500).json({
+        success: false,
+        error: error.message,
+      });
+    }
+  }
 }
 
 module.exports = new ShipmentController();

@@ -99,6 +99,15 @@ class ShipmentService {
     const result = await db.query(query, values);
     return ShipmentPresenter.present(result.rows[0]);
   }
+  async uploadShipments(shipments) {
+    const createdShipments = [];
+    for (const shipmentData of shipments) {
+      const shipment = await this.createShipment(shipmentData);
+      createdShipments.push(shipment);
+    }
+    return createdShipments;
+  }
+
 }
 
 module.exports = new ShipmentService();

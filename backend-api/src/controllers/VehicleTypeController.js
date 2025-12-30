@@ -1,12 +1,11 @@
-// services/VehicleTypeService.js
-const { Pool } = require("pg");
-const pool = new Pool(require("../config/database"));
+const db = require("../lib/db");
 const VehicleTypePresenter = require("../presenters/VehicleTypePresenter");
 
 class VehicleTypeService {
+  tableName = 'vehicle_type';
   async getAll() {
-    const result = await pool.query(`
-            SELECT * FROM vehicle_types 
+    const result = await db.query(`
+            SELECT * FROM ${this.tableName}
             WHERE is_active = true 
             ORDER BY name ASC
         `);
@@ -14,8 +13,8 @@ class VehicleTypeService {
   }
 
   async getById(id) {
-    const result = await pool.query(
-      "SELECT * FROM vehicle_types WHERE id = $1 AND is_active = true",
+    const result = await db.query(
+      `SELECT * FROM ${this.tableName} WHERE id = $1 AND is_active = true`,
       [id]
     );
     if (result.rows.length === 0) {
@@ -27,8 +26,8 @@ class VehicleTypeService {
   async create(vehicleTypeData) {
     const { name, code, maxCapacity, maxWeight, ratePerKm } = vehicleTypeData;
 
-    const result = await pool.query(
-      `INSERT INTO vehicle_types (name, code, max_capacity, max_weight, rate_per_km, created_at, updated_at)
+    const result = await db.query(
+      `INSERT INTO ${this.tableName} (name, code, max_capacity, max_weight, rate_per_km, created_at, updated_at)
              VALUES ($1, $2, $3, $4, $5, NOW(), NOW()) RETURNING *`,
       [name, code, maxCapacity, maxWeight, ratePerKm]
     );

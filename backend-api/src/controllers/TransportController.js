@@ -2,7 +2,6 @@ const transportService = require('../services/TransportService');
 
 class TransportController {
     async getAll(req, res) {
-      console.log("Fetching all transports");
         try {
             const transports = await transportService.getAll();
             res.json({

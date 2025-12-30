@@ -5,6 +5,8 @@ const router = express.Router();
 
 // GET /api/materials
 router.get('/', (req, res) => MaterialController.getAll(req, res));
+router.get('/ids', (req, res) => MaterialController.getAllIds(req, res));
+
 
 // POST /api/materials
 router.post('/', (req, res) => MaterialController.create(req, res));

@@ -6,7 +6,7 @@ class Validation {
       source,
       destination,
       material_id,
-      vehicle_type_id,
+      
       weight,
       volume,
       quantity,
@@ -17,7 +17,7 @@ class Validation {
       !source ||
       !destination ||
       !material_id ||
-      !vehicle_type_id ||
+      
       !weight ||
       !volume ||
       !quantity
@@ -43,7 +43,7 @@ class Validation {
   }
 
   // Transport validation middleware
-  
+
 
 }
 
