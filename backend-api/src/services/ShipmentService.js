@@ -65,7 +65,6 @@ class ShipmentService {
             JOIN vehicle_type vt ON s.vehicle_type_id = vt.id
             ORDER BY s.created_at DESC
         `;
-
     const result = await db.query(query);
     return ShipmentPresenter.presentList(result.rows);
   }

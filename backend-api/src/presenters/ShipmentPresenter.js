@@ -19,8 +19,6 @@ class ShipmentPresenter {
       weight: parseFloat(shipment.weight),
       volume: parseFloat(shipment.volume),
       quantity: parseInt(shipment.quantity),
-      total_weight: parseFloat(shipment.weight) * parseInt(shipment.quantity),
-      total_volume: parseFloat(shipment.volume) * parseInt(shipment.quantity),
       status: shipment.status,
       estimated_delivery: shipment.estimated_delivery,
       actual_delivery: shipment.actual_delivery,

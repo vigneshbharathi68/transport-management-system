@@ -12,7 +12,14 @@ class Database {
     });
   }
 
+  async query(text, params) {
+    const res = await this.pool.query(text, params);
+    return res;
+  }
+
   async getConnection() {
     return await this.pool.connect();
   }
 }
+
+module.exports = new Database();
