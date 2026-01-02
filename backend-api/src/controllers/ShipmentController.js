@@ -72,6 +72,7 @@ class ShipmentController {
   }
 
   async uploadShipments(req, res) {
+    console.log("📁 Processing upload request", req.file);
     try {
       const shipments = await shipmentService.uploadShipments(req.file);
       res.status(201).json({
